@@ -102,7 +102,7 @@ export default function Features() {
             </span>
           </h2>
           <p className="text-gray-600 md:text-lg max-w-[800px] mx-auto">
-            Because you'd probably be a little confused if we suggested you complicate your everyday business tasks instead.
+            Because you&apos;d probably be a little confused if we suggested you complicate your everyday business tasks instead.
           </p>
         </div>
 
