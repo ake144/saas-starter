@@ -1,76 +1,49 @@
-"use client"
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
-import { useEffect, useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { motion } from 'framer-motion'
-
+ 
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: "This SaaS platform has completely transformed our business operations. It's intuitive, powerful, and incredibly efficient.",
-      author: "Jane Doe",
-      company: "Tech Innovators Inc."
+      quote:
+        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
+      name: "Sarah Chen",
+      designation: "Product Manager at TechFlow",
+      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      quote: "The analytics capabilities are unmatched. We've gained invaluable insights that have driven our growth strategy.",
-      author: "John Smith",
-      company: "Data Driven Co."
+      quote:
+        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+      name: "Michael Rodriguez",
+      designation: "CTO at InnovateSphere",
+      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      quote: "Customer support is top-notch. Any issues we've had were resolved quickly and professionally.",
-      author: "Emily Johnson",
-      company: "Startup Success Ltd."
-    }
-  ]
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
-
-  return (
-    <section className="w-full items-center justify-center flex py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">What Our Customers Say</h2>
-        <div className="relative">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card className="max-w-2xl mx-auto">
-              <CardContent className="pt-10">
-                <blockquote className="text-xl italic mb-4">"{testimonials[currentIndex].quote}"</blockquote>
-                <p className="font-semibold">{testimonials[currentIndex].author}</p>
-                <p className="text-sm text-gray-500">{testimonials[currentIndex].company}</p>
-              </CardContent>
-            </Card>
-          </motion.div>
-          <Button variant="outline" className="absolute top-1/2 left-0 transform -translate-y-1/2" onClick={prevTestimonial}>
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-          <Button variant="outline" className="absolute top-1/2 right-0 transform -translate-y-1/2" onClick={nextTestimonial}>
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-        </div>
-      </div>
-    </section>
-  )
+      quote:
+        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
+      name: "Emily Watson",
+      designation: "Operations Director at CloudScale",
+      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      quote:
+        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
+      name: "James Kim",
+      designation: "Engineering Lead at DataPro",
+      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      quote:
+        "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
+      name: "Lisa Thompson",
+      designation: "VP of Technology at FutureNet",
+      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
+  return <div className="flex flex-col ">
+    <h1 className="text-5xl p-5 mt-6  justify-center items-center flex text-black font-bold ">Trust from peoples.
+       
+    </h1>
+     <AnimatedTestimonials testimonials={testimonials} />;
+  </div>
+ 
 }
